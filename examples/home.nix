@@ -189,7 +189,7 @@
                 };
                 icon = "view-media-track";
               };
-              preferredSource = "spotify";
+              playbackSource = "auto";
               musicControls.showPlaybackControls = true;
               songText = {
                 displayInSeparateLines = true;
