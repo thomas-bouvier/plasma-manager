@@ -77,8 +77,13 @@ in
         ];
         description = "The list of launcher tasks on the widget. Usually .desktop file or executable URLs. Special URLs such as preferred://browser that expand to default applications are supported.";
       };
+      iconsOnly = mkOption {
+        type = types.bool;
+        default = true;
+        example = false;
+        description = "Whether to show icons only.";
+      };
       appearance = {
-        iconOnly = mkBoolOption "Wheter to show icons only.";
         showTooltips = mkBoolOption "Whether to show tooltips when hovering task buttons.";
         highlightWindows = mkBoolOption "Whether to request the window manager highlight windows when hovering corresponding task tooltips.";
         indicateAudioStreams = mkBoolOption "Whether to indicate applications that are playing audio including an option to mute them.";
@@ -235,10 +240,11 @@ in
         behavior,
         launchers,
         settings,
+        iconsOnly
         ...
       }:
       {
-        name = if appearance.iconOnly
+        name = if iconsOnly
           then "org.kde.plasma.icontasks"
           else "org.kde.plasma.taskmanager";
         config = lib.recursiveUpdate {
