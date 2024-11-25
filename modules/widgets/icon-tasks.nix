@@ -240,7 +240,7 @@ in
         behavior,
         launchers,
         settings,
-        iconsOnly
+        iconsOnly,
         ...
       }:
       {
